@@ -6,10 +6,6 @@
 
 本项目使用[paddle](https://github.com/PaddlePaddle/Paddle)框架复现[Oscar](https://arxiv.org/abs/2004.06165)模型。该模型借助目标类别`Object Tags`来实现更好的视觉和文本的跨模态对齐。作者引入`Object Tags`并基于此提出了两个损失函数进行大规模的预训练，使得能够学习到文本和图像区域的语义对齐表征。实验表明，作者在多个 vision-language 任务上得到了有效的提升。
 
-**注: AI Studio项目地址: [https://aistudio.baidu.com/aistudio/projectdetail/2609611](https://aistudio.baidu.com/aistudio/projectdetail/2609611).**
-
-**您可以使用[AI Studio](https://aistudio.baidu.com/)平台在线运行该项目!**
-
 **论文:**
 
 * [1] X. Li, X. Yin, C. Li, and et. al, "Oscar: Object-Semantics Aligned Pre-training for Vision-Language Tasks", ECCV, 2020.
