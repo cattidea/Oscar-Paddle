@@ -92,7 +92,16 @@ bash ./download_dataset.sh
 
 ### step4: 训练
 
+```bash
+export PYTHONPATH=$PWD:$PYTHONPATH
+CUDA_VISIBLE_DEVICES='0, 1, 2, 3' python -m paddle.distributed.launch tools/train_retrieval.py --cfg_file configs/retrieval_train.yaml
+```
+
 ### step5: 测试
+
+```bash
+python tools/eval_retrieval.py --cfg_file configs/retrieval_test.yaml
+```
 
 ### 使用预训练模型进行预测
 
@@ -115,7 +124,7 @@ bash ./download_dataset.sh
 ├── tests                     # 测试文件
 ├── tools
 │   └── train_retrieval.py    # 训练脚本
-│   └── test_retrieval.py     # 测试脚本
+│   └── eval_retrieval.py     # 测试脚本
 └── requirement.txt           # 依赖包
 ```
 
