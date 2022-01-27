@@ -105,12 +105,11 @@ export PYTHONPATH=$PWD:$PYTHONPATH
 CUDA_VISIBLE_DEVICES='0, 1, 2, 3' python -m paddle.distributed.launch tools/train_retrieval.py --cfg_file configs/retrieval_train.yaml
 ```
 
-**执行之前，需要手动修改配置文件(configs/retrieval_train.yaml)的一些参数: DATA_DIR (数据集路径)，PRETRAINED-DIR (预训练权重路径)**
-
 ### step5: 测试
 
 ```bash
 python tools/eval_retrieval.py --cfg_file configs/retrieval_test.yaml
+# 测试之前,需要在configs/retrieval_test.yaml中指定测试的模型 (即修改EVAL-CHECKPOINT_DIR参数).
 ```
 
 ### 使用预训练模型进行预测
