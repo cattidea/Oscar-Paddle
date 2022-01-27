@@ -44,14 +44,15 @@
     </tr>
     <tr align="center">
         <td>复现精度</td>
-        <td>89.8</td>
-        <td>98.8</td>
-        <td>99.7</td>
-        <td>78.2</td>
-        <td>95.8</td>
-        <td>98.3</td>
+        <td>90.4</td>
+        <td>98.5</td>
+        <td>99.8</td>
+        <td>78.1</td>
+        <td>96.2</td>
+        <td>98.2</td>
     </tr>
 </table>
+
 
 ## 三、数据集
 
@@ -83,11 +84,18 @@ cd Oscar-Paddle
 pip install -r requirements.txt
 ```
 
-### step3: 下载数据
+### step3: 挂载数据
 
 ```bash
-# 下载数据集及特征
-bash ./download_dataset.sh
+# 相关数据集已上传至Aistudio
+# 详情见: https://aistudio.baidu.com/aistudio/datasetdetail/124153
+
+# paddle格式的预训练权重也已上传至Aistudio
+# 详情见: https://aistudio.baidu.com/aistudio/datasetdetail/124186
+
+# 下载或挂载数据集和预训练权重之后
+# 需要修改配置文件(configs/retrieval_train.yaml和configs/retrieval_test.yaml)
+# 的一些参数: DATA_DIR (数据集目录), PRETRAINED-DIR (预训练权重路径)
 ```
 
 ### step4: 训练
@@ -96,6 +104,8 @@ bash ./download_dataset.sh
 export PYTHONPATH=$PWD:$PYTHONPATH
 CUDA_VISIBLE_DEVICES='0, 1, 2, 3' python -m paddle.distributed.launch tools/train_retrieval.py --cfg_file configs/retrieval_train.yaml
 ```
+
+**执行之前，需要手动修改配置文件(configs/retrieval_train.yaml)的一些参数: DATA_DIR (数据集路径)，PRETRAINED-DIR (预训练权重路径)**
 
 ### step5: 测试
 
