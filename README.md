@@ -6,6 +6,14 @@
 
 本项目使用[paddle](https://github.com/PaddlePaddle/Paddle)框架复现[Oscar](https://arxiv.org/abs/2004.06165)模型。该模型借助目标类别`Object Tags`来实现更好的视觉和文本的跨模态对齐。作者引入`Object Tags`并基于此提出了两个损失函数进行大规模的预训练，使得能够学习到文本和图像区域的语义对齐表征。实验表明，作者在多个 vision-language 任务上得到了有效的提升。
 
+**注: **
+
+**AI Studio多卡项目地址: [https://aistudio.baidu.com/aistudio/clusterprojectdetail/3377920](https://aistudio.baidu.com/aistudio/clusterprojectdetail/3377920).**
+
+**AI Studio单卡项目地址: [https://aistudio.baidu.com/aistudio/projectdetail/3395242](https://aistudio.baidu.com/aistudio/projectdetail/3395242).**
+
+**您可以使用[AI Studio](https://aistudio.baidu.com/)平台在线运行该项目!**
+
 **论文:**
 
 * [1] X. Li, X. Yin, C. Li, and et. al, "Oscar: Object-Semantics Aligned Pre-training for Vision-Language Tasks", ECCV, 2020.
@@ -108,11 +116,17 @@ CUDA_VISIBLE_DEVICES='0, 1, 2, 3' python -m paddle.distributed.launch tools/trai
 ### step5: 测试
 
 ```bash
-python tools/eval_retrieval.py --cfg_file configs/retrieval_test.yaml
 # 测试之前,需要在configs/retrieval_test.yaml中指定测试的模型 (即修改EVAL-CHECKPOINT_DIR参数).
+python tools/eval_retrieval.py --cfg_file configs/retrieval_test.yaml
 ```
 
 ### 使用预训练模型进行预测
+
+```bash
+# 下载训练好的模型权重
+# https://aistudio.baidu.com/aistudio/datasetdetail/124760
+# 执行Step5进行测试
+```
 
 ## 六、代码结构与详细说明
 
@@ -148,4 +162,4 @@ python tools/eval_retrieval.py --cfg_file configs/retrieval_test.yaml
 | 框架版本 |                         Paddle 2.2.1                         |
 | 应用场景 |                            多模态                            |
 | 支持硬件 |                           GPU、CPU                           |
-| 下载链接 | [预训练模型](https://drive.google.com/file/d/19gbGuVm9hgVPm_XzAUrTpeDmObr5ZAv3/view?usp=sharing) \| [训练日志](https://drive.google.com/file/d/1hwXfZUy3V2YnsBKQkQADvACTyXYqvLFa/view?usp=sharing) |
+| 下载链接 | [预训练模型](https://aistudio.baidu.com/aistudio/datasetdetail/124760) \| [训练日志](https://github.com/cattidea/Oscar-Paddle/tree/main/log) |
